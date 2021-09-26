@@ -32,15 +32,11 @@ pub fn parse<'a>(input: &'a str) -> Result<HashMap<&'a str, String>,StdError> {
                         Rule::value => {
                             env_var.insert(current_key.clone(), field.as_str().remove_quoted());
                         }
-                        Rule::EOI => todo!(),
-                        Rule::pair => todo!(),
-                        Rule::file => todo!(),
-                        Rule::WHITESPACE => todo!(),
-                        Rule::COMMENT => todo!(),
+                        _ => unreachable!()
                     }
                 }
             }
-            _ => (),
+            _ => unreachable!()
         }
     }
 
