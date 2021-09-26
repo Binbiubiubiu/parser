@@ -1,0 +1,16 @@
+//
+// Created by intellij-pest on 2021-09-23
+// ini
+// Author: lvbin
+//
+
+key = {(!(NEWLINE|"=")~ANY)+}
+value_char = { !NEWLINE ~ ANY}
+value = @{value_char*}
+pair = {key  ~ "=" ~ value}
+title = {(!(NEWLINE|"["|"]")~ANY)+}
+section_title = _{"["~title~"]"}
+file =  {SOI ~ ((section_title|pair) ~ NEWLINE*)* ~ EOI }
+
+WHITESPACE = _{ " " }
+COMMENT = _{ ("#"|";") ~ (!NEWLINE ~ ANY)* ~ NEWLINE*}

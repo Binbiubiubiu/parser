@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "cvs",
+    "dot_env",
+    "ini",
+    "json"
+]
