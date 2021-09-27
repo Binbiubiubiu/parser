@@ -41,11 +41,11 @@ pub fn parse<'a>(input: &'a str) -> Result<JsonValue, StdError> {
                                 &JsonValue::String(field.as_str().remove_quoted()),
                             );
                         }
-                        _ => unreachable!()
+                        _ => unreachable!(),
                     }
                 }
             }
-            _ => unreachable!()
+            _ => unreachable!(),
         }
     }
 

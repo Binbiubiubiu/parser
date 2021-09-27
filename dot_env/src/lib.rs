@@ -12,9 +12,7 @@ struct PestParser;
 
 type StdError = Box<dyn std::error::Error>;
 
-
-
-pub fn parse<'a>(input: &'a str) -> Result<HashMap<&'a str, String>,StdError> {
+pub fn parse<'a>(input: &'a str) -> Result<HashMap<&'a str, String>, StdError> {
     let file = PestParser::parse(Rule::file, input)
         .expect("success parse")
         .next()
@@ -32,14 +30,13 @@ pub fn parse<'a>(input: &'a str) -> Result<HashMap<&'a str, String>,StdError> {
                         Rule::value => {
                             env_var.insert(current_key.clone(), field.as_str().remove_quoted());
                         }
-                        _ => unreachable!()
+                        _ => unreachable!(),
                     }
                 }
             }
-            _ => unreachable!()
+            _ => unreachable!(),
         }
     }
 
     Ok(env_var)
 }
-

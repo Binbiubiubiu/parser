@@ -16,7 +16,7 @@ impl RemoveQuoted for str {
             s = v.to_string();
 
             if is_double_quoted {
-                s =  s
+                s = s
                     .replace("\\\"", "\"")
                     .replace("\\r", "\r")
                     .replace("\\n", "\n");

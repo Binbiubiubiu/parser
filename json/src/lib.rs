@@ -39,13 +39,11 @@ pub fn serialize_jsonvalue(val: &JSONValue) -> String {
     }
 }
 
-
-
 pub fn parse<'a>(input: &'a str) -> Result<JSONValue, StdError> {
     let json = PestParser::parse(Rule::json, input)?
         .next()
         .expect("success iterator file");
-    
+
     use pest::iterators::Pair;
 
     fn parse_value(pair: Pair<Rule>) -> JSONValue {
